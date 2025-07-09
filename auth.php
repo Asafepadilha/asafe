@@ -1,14 +1,12 @@
-<div class="container">
-<link rel="stylesheet" href="assets/css/style.css">
 <?php
-function is_logged() {
-  return !empty($_SESSION['user_id']);
-}
-function require_login() {
-  if (!is_logged()) {
-    header('Location: login.php'); exit;
-  }
-}
-function current_user_id() {
-  return $_SESSION['user_id'] ?? null;
+$host = 'localhost';
+$dbname = 'seubanco';
+$user = 'usuario';
+$pass = 'senha';
+
+try {
+  $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  die("Erro na conexão: " . $e->getMessage());
 }
