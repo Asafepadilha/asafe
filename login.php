@@ -15,10 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="post">
+<h1>Login de Cliente</h1>
   <input name="username" placeholder="Usuário">
   <input name="password" type="password" placeholder="Senha">
   <button type="submit">Entrar</button>
 </form>
 <?php if (isset($erro)) echo "<p style='color:red;'>$erro</p>"; ?>
-<p><a href="register.php">Cadastrar</a></p>
+<p><a href="register.php">Registrar</a></p>
 </div>
